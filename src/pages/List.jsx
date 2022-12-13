@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 function List() {
   const todosStore = useSelector((state) => state.todos);
+  const param = useParams();
   console.log(todosStore);
   const [todos, setTodos] = useState([]);
 
@@ -22,20 +23,23 @@ function List() {
   }, []);
   // data fetching이 정상적으로 되었는지 콘솔을 통해 확인합니다.
   console.log(todos);
+  console.log(param);
   return (
     <div>
       <h2>Working</h2>
 
       <div>
         {todos.map((data) => {
-          if (data.isDone === false) {
-            return (
-              <div>
-                <Link to={`/details/${data.id}`}>자세히</Link>
-                {data.title}
-                {data.content}
-              </div>
-            );
+          if (data.category === param.category) {
+            if (data.isDone === false) {
+              return (
+                <div>
+                  <Link to={`/details/${data.id}`}>자세히</Link>
+                  {data.title}
+                  {data.content}
+                </div>
+              );
+            }
           }
         })}
       </div>
