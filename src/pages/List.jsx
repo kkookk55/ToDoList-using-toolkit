@@ -34,7 +34,7 @@ function List() {
             if (data.isDone === false) {
               return (
                 <div>
-                  <Link to={`/details/${data.id}`}>자세히</Link>
+                  <Link to={`/detail/${data.id}`}>자세히</Link>
                   {data.title}
                   {data.content}
                 </div>
@@ -47,14 +47,16 @@ function List() {
 
       <div>
         {todos.map((data) => {
-          if (data.isDone !== false) {
-            return (
-              <div>
-                <Link to={`/details/${data.id}`}>자세히</Link>
-                {data.title}
-                {data.content}
-              </div>
-            );
+          if (data.category === param.category) {
+            if (data.isDone === true) {
+              return (
+                <div>
+                  <Link to={`/detail/${data.id}`}>자세히</Link>
+                  {data.title}
+                  {data.content}
+                </div>
+              );
+            }
           }
         })}
       </div>
