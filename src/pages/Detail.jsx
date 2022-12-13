@@ -1,36 +1,81 @@
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios"; // axios import 합니다.
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
+const StBox = styled.div`
+  text-align: center;
+  width: 700px;
+  height: 500px;
+  border: 1px solid red;
+  margin: auto;
+`;
+const TitleBox = styled.div`
+  font-size: 30px;
+  font-weight: bold;
+  padding-bottom: 30px;
+`;
+const CategoryBox = styled.div`
+  text-align: left;
+  padding: 20px;
+  border: 1px solid black;
+`;
+const ContentBox = styled.div`
+  border: 2px solid green;
+  border-radius: 10px;
+  min-height: 270px;
+  max-height: 270px;
+`;
+const ButtonBox = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  border: 2px solid blue;
+  margin-top: 20px;
+`;
+const ButtonStyle = styled.div``;
 function Detail() {
   const [todos, setTodos] = useState([]);
-
-  // axios를 통해서 get 요청을 하는 함수를 생성합니다.
-  // 비동기처리를 해야하므로 async/await 구문을 통해서 처리합니다.
+  const param = useParams();
   const fetchTodos = async () => {
     const { data } = await axios.get("http://localhost:3001/todos");
-    setTodos(data); // 서버로부터 fetching한 데이터를 useState의 state로 set 합니다.
+    setTodos(data);
   };
-
-  // 생성한 함수를 컴포넌트가 mount 됐을 떄 실행하기 위해 useEffect를 사용합니다.
   useEffect(() => {
     // effect 구문에 생성한 함수를 넣어 실행합니다.
     fetchTodos();
   }, []);
-
-  // data fetching이 정상적으로 되었는지 콘솔을 통해 확인합니다.
-  console.log(todos);
+  console.log(param);
   return (
-    <div>
+    <StBox>
       {todos.map((item) => {
-        return (
-          <div>
-            {item.id}//{item.title}
-            //{item.content}
-          </div>
-        );
+        if (item.id === param.id) {
+          return (
+            <div>
+              제목:{item.title} // 내용:{item.content}
+            </div>
+          );
+        }
       })}
-    </div>
+      <TitleBox>체지방량 감소하기 </TitleBox>
+      <CategoryBox>카테고리 로고 / 카테고리 값 / 마감까지남은일수/</CategoryBox>
+      <ContentBox>내용/</ContentBox>
+      <ButtonBox>
+        <ButtonStyle>
+          <button>완료</button>
+        </ButtonStyle>
+        <ButtonStyle></ButtonStyle>
+        <ButtonStyle>
+          <button>돌아가기</button>
+        </ButtonStyle>
+        <ButtonStyle>
+          <button>수정하기</button>
+        </ButtonStyle>
+        <ButtonStyle>
+          <button>삭제하기</button>
+        </ButtonStyle>
+      </ButtonBox>
+    </StBox>
   );
 }
 export default Detail;
