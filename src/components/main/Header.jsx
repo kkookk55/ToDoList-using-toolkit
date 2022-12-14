@@ -1,11 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import Burger from '../SideBar/Burger';
+
 
 const Header = () => {
+
+    
     return(
+        <>
+        
         <StBox>
             <StTitle>TTODOLIST</StTitle>
         </StBox>
+        </>
     )
 }
 
@@ -15,6 +22,7 @@ const StBox = styled.div`
     width: 100vw;
     height: 50px;
     margin-top: 80px;
+
     background-color: #EEC0C0;
     align-items: center;
     display: flex;

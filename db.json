@@ -1,10 +1,52 @@
 {
   "todos": [
     {
-      "id": "B0b7ae79g1fV0kPqLhTMY",
-      "title": "3",
-      "content": "3",
-      "category": "daily",
+      "id": "1bYPrFrxPrFv3UcH61IUp",
+      "title": "운동",
+      "content": "운동",
+      "categoty": "workout",
+      "isDone": false
+    },
+    {
+      "id": "TjEu1Nkm9diOkbQbx8FPr",
+      "title": "일상",
+      "content": "일상",
+      "categoty": "daily",
+      "isDone": false
+    },
+    {
+      "id": "tO_3HKpLcho60tQaxnTX_",
+      "title": "공부",
+      "content": "공부",
+      "categoty": "study",
+      "isDone": false
+    },
+    {
+      "id": "hLPiDbryzB99Ik1E3pDDh",
+      "title": "ddd",
+      "content": "dd",
+      "categoty": "workout",
+      "isDone": false
+    },
+    {
+      "id": "fAyLGSJYjsiOxMxwwpZHB",
+      "title": "일상",
+      "content": "일상",
+      "categoty": "daily",
+      "isDone": false
+    },
+    {
+      "id": "2IY7gei1SF7dHe4TmUr4L",
+      "title": "ㅇㅇ",
+      "content": "ㅇㅇ",
+      "categoty": "workout",
+      "isDone": false
+    },
+    {
+      "id": "qoWPsJ-oZRmkblmtXTnaA",
+      "title": "ㄴㄴ",
+      "content": "ㄴㄴ",
+      "categoty": "daily",
       "isDone": false
     }
   ]
