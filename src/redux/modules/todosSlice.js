@@ -5,10 +5,28 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
-  todos: [], //데이터
-  isLoading: false, //서버에서 todos를 가져오는 상태를 나타내는 값
+  cooment: [],
+  todos: [],
+  isLoading: false,
   error: null,
 };
+
+export const __addTodo = createAsyncThunk(
+  "addTodo",
+
+  async (payload, thunkAPI) => {
+    await axios.post("http://localhost:3001/todos", payload);
+    return thunkAPI.fulfillWithValue(payload);
+  }
+);
+export const __addComment = createAsyncThunk(
+  "addComment",
+
+  async (payload, thunkAPI) => {
+    await axios.post("http://localhost:3001/comments", payload);
+    return thunkAPI.fulfillWithValue(payload);
+  }
+);
 
 export const __getTodos = createAsyncThunk(
   "todos/getTodos",
@@ -16,8 +34,43 @@ export const __getTodos = createAsyncThunk(
     // const data는 Promise를 반환
     try {
       const data = await axios.get("http://localhost:3001/todos");
-      // 반환된 Promise의 fulfilles 또는 rejected된 것을 처리하기위해 async/await를 추가
+
       console.log(data);
+      return thunkAPI.fulfillWithValue(data.data);
+    } catch (error) {
+      console.log(error);
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const __getListTodos = createAsyncThunk(
+  "todos/getTodosByList",
+  async (payload, thunkAPI) => {
+    console.log("payload", payload);
+    // const data는 Promise를 반환
+    try {
+      const data = await axios.get(
+        `http://localhost:3001/todos?category=${payload}`
+      );
+
+      console.log("data", data);
+      return thunkAPI.fulfillWithValue(data.data);
+    } catch (error) {
+      console.log(error);
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+export const __getTodoById = createAsyncThunk(
+  "todos/getTodoById",
+  async (payload, thunkAPI) => {
+    console.log("payload", payload);
+    // const data는 Promise를 반환
+    try {
+      const data = await axios.get(`http://localhost:3001/todos?id=${payload}`);
+
+      console.log("data", data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       console.log(error);
@@ -28,19 +81,37 @@ export const __getTodos = createAsyncThunk(
 
 export const todosSlice = createSlice({
   name: "todos",
-  initialState,
+  initialState: initialState,
   reducers: {},
   extraReducers: {
     [__getTodos.pending]: (state) => {
-      state.isLoading = true; // 네트워크 요청이 시작되면 로딩상태를 true로 변경합니다.
+      state.isLoading = true;
     },
     [__getTodos.fulfilled]: (state, action) => {
-      state.isLoading = false; // 네트워크 요청이 끝났으니, false로 변경합니다.
-      state.todos = action.payload; // Store에 있는 todos에 서버에서 가져온 todos를 넣습니다.
+      state.isLoading = false;
+      state.todos = action.payload;
+    },
+    [__getListTodos.fulfilled]: (state, action) => {
+      console.log(action.payload);
+      state.isLoading = false;
+      state.todos = action.payload;
+    },
+    [__getTodoById.fulfilled]: (state, action) => {
+      console.log(action.payload);
+      state.isLoading = false;
+      state.todos = action.payload;
+    },
+    [__addTodo.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.todos.push(action.payload);
+    },
+    [__addComment.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      // state.comment.push(action.payload);
     },
     [__getTodos.rejected]: (state, action) => {
-      state.isLoading = false; // 에러가 발생했지만, 네트워크 요청이 끝났으니, false로 변경합니다.
-      state.error = action.payload; // catch 된 error 객체를 state.error에 넣습니다.
+      state.isLoading = false;
+      state.error = action.payload;
     },
   },
 });

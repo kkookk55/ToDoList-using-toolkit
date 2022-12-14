@@ -2,12 +2,17 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { nanoid } from "nanoid";
-
+import { __addTodo } from "../redux/modules/todosSlice";
+import { useDispatch } from "react-redux/es/exports";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 const SideBar = () => {
+  const todosStore = useSelector((state) => state.todos);
+  console.log("투두스토어", todosStore);
   const [category, setCategory] = useState("workout");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [todos, setTodos] = useState(null);
+  const dispatch = useDispatch();
 
   const todo = {
     id: nanoid(),
@@ -16,13 +21,6 @@ const SideBar = () => {
     category: category,
     isDone: false,
   };
-  //   const [todo, setTodo] = useState({
-  //     id: 0, // nanoId
-  //     title: "",
-  //     content: "",
-  //     category: "",
-  //     isDone: false,
-  //   });
 
   const selectHandler = async (event) => {
     event.preventDefault();
@@ -46,8 +44,7 @@ const SideBar = () => {
 
   //post(submit)
   const onSubmitHandler = async (todo) => {
-    await axios.post("http://localhost:3001/todos", todo);
-    setTodos([...todos, todo]);
+    dispatch(__addTodo(todo));
   };
 
   useEffect(() => {
