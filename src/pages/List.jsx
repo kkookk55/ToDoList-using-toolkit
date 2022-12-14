@@ -7,12 +7,18 @@ import styled from "styled-components";
 const ListLayout = styled.div`
   width: 100%;
   height: 80%;
-  display: inline-flex;
+  display: flex;
+`;
+
+const ListHeader = styled.div`
+  width: 100%;
+  height: 20%;
+  display: flex;
 `;
 
 const LeftContainer = styled.div`
   display: grid;
-  padding: 10px;
+  padding: 20px;
   /* grid-template-columns: repeat(2, 100px); */
   grid-auto-rows: minmax(100px, auto);
   grid-gap: 10px;
@@ -22,7 +28,7 @@ const LeftContainer = styled.div`
 
 const RightContainer = styled.div`
   display: grid;
-  padding: 10px;
+  padding: 20px;
   grid-template-columns: repeat(2, 10rem);
   /* grid-auto-rows: minmax(100px, auto); */
   grid-gap: 10px;
@@ -79,8 +85,10 @@ function List() {
   console.log(param);
   return (
     <ListLayout>
-      <h2>Working</h2>
-      <h2>Done</h2>
+      <ListHeader>
+        <h2>Working</h2>
+        <h2>Done</h2>
+      </ListHeader>
       <LeftContainer>
         <div>
           {todos.map((data) => {
