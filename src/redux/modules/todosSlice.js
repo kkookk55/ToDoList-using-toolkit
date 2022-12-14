@@ -78,6 +78,20 @@ export const __getTodoById = createAsyncThunk(
     }
   }
 );
+export const __getTodosByIsDone = createAsyncThunk(
+  "todos/getTodosByCategory",
+  async (payload, thunkAPI) => {
+    try {
+      const data = await axios.get(`http://localhost:3001/todos?isDone=false`);
+
+      console.log("data", data.data);
+      return thunkAPI.fulfillWithValue(data.data);
+    } catch (error) {
+      console.log(error);
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
 
 export const todosSlice = createSlice({
   name: "todos",
@@ -101,9 +115,14 @@ export const todosSlice = createSlice({
       state.isLoading = false;
       state.todos = action.payload;
     },
-    [__addTodo.fulfilled]: (state, action) => {
+    [__getTodoById.fulfilled]: (state, action) => {
+      console.log(action.payload);
       state.isLoading = false;
-      state.todos.push(action.payload);
+      state.todos = action.payload;
+    },
+    [__getTodosByIsDone.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.todos = action.payload;
     },
     [__addComment.fulfilled]: (state, action) => {
       state.isLoading = false;

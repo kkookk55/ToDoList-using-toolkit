@@ -2,17 +2,37 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { nanoid } from "nanoid";
-import { __addTodo } from "../redux/modules/todosSlice";
-import { useDispatch } from "react-redux/es/exports";
-import { useSelector } from "react-redux/es/hooks/useSelector";
+import { Link } from "react-router-dom";
+import { Dispatch } from "react";
+import { useDispatch, useSelector } from "react-redux/es/exports";
+import { __getTodosByIsDone } from "../redux/modules/todosSlice";
 const SideBar = () => {
-  const todosStore = useSelector((state) => state.todos);
-  console.log("투두스토어", todosStore);
+  const dispatch = useDispatch();
   const [category, setCategory] = useState("workout");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [todos, setTodos] = useState(null);
-  const dispatch = useDispatch();
+  const todoStore = useSelector((state) => state.todos.todos);
+  console.log("todostore", todoStore);
+
+  const workouts = todoStore.filter((todo) => {
+    if (todo.category === "workout") {
+      return todo;
+    }
+  });
+  const dailys = todoStore.filter((todo) => {
+    if (todo.category === "daily") {
+      return todo;
+    }
+  });
+  const studys = todoStore.filter((todo) => {
+    if (todo.category === "study") {
+      return todo;
+    }
+  });
+
+  console.log(workouts);
+  console.log(dailys);
+  console.log(studys);
 
   const todo = {
     id: nanoid(),
@@ -21,37 +41,26 @@ const SideBar = () => {
     category: category,
     isDone: false,
   };
-
   const selectHandler = async (event) => {
     event.preventDefault();
     setCategory(event.target.value);
-    console.log("todo:", todo);
-    console.log("category:", category);
-    // console.log(category)
   };
-
   const btns = [
     { value: "workout", name: "운동" },
     { value: "daily", name: "일상" },
     { value: "study", name: "공부" },
   ];
-
-  //get
-  const fetchTodos = async () => {
-    const { data } = await axios.get("http://localhost:3001/todos");
-    setTodos(data); // 서버로부터 fetching한 데이터를 useState의 state로 set.
+  const fetchTodos = () => {
+    dispatch(__getTodosByIsDone());
   };
 
-  //post(submit)
   const onSubmitHandler = async (todo) => {
-    dispatch(__addTodo(todo));
+    await axios.post("http://localhost:3001/todos", todo);
   };
-
   useEffect(() => {
     fetchTodos();
   }, []);
 
-  // console.log(todos);
   return (
     <>
       <form
@@ -76,12 +85,11 @@ const SideBar = () => {
             }}
           />
         </StBox>
-
         <StTitle>카테고리</StTitle>
-        {/* 
+        {/*
         <button className={category === value} onClick={selectHandler} value='workout'>운동</button>
         <button className='' onClick={selectHandler} value='daily'>일상</button>
-        <button className='' onClick={selectHandler} value='study'>공부</button> 
+        <button className='' onClick={selectHandler} value='study'>공부</button>
         */}
         <div>
           {btns.map((btn) =>
@@ -100,26 +108,35 @@ const SideBar = () => {
             )
           )}
         </div>
-
         <button>추가하기</button>
       </form>
+      <div>
+        <Link to={`/list/workout`}>운동</Link>
+        {workouts?.map((data) => {
+          return <div>{data.title}</div>;
+        })}
+        <Link to={`/list/daily`}>일상</Link>
+        {dailys?.map((data) => {
+          return <div>{data.title}</div>;
+        })}
+        <Link to={`/list/study`}>공부</Link>
+        {studys?.map((data) => {
+          return <div>{data.title}</div>;
+        })}
+      </div>
     </>
   );
 };
-
 export default SideBar;
-
 const StBox = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
 const StInput = styled.input`
   width: 200px;
   height: 30px;
   margin-bottom: 8px;
 `;
-
 const StTitle = styled.h3`
   font-size: 14px;
 `;
