@@ -4,24 +4,48 @@ import axios from "axios"; // axios import 합니다.
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
-const ListContainer = styled.div`
-  width: 600px;
-  height: 600px;
+const ListLayout = styled.div`
+  width: 100%;
+  height: 80%;
   display: inline-flex;
+`;
+
+const LeftContainer = styled.div`
+  display: grid;
+  padding: 10px;
+  /* grid-template-columns: repeat(2, 100px); */
+  grid-auto-rows: minmax(100px, auto);
+  grid-gap: 10px;
+  width: 50%;
   border: 3px solid yellow;
 `;
 
-const ListCard = styled(Link)`
+const RightContainer = styled.div`
+  display: grid;
+  padding: 10px;
+  grid-template-columns: repeat(2, 10rem);
+  /* grid-auto-rows: minmax(100px, auto); */
+  grid-gap: 10px;
+  width: 50%;
+  border: 3px solid yellow;
+`;
+
+const ListCard = styled.div`
   width: 200px;
   height: 200px;
   border: 3px solid black;
   margin: 20px;
+
   .title {
     width: 160px;
     height: 40px;
     border: 3px solid gray;
     margin: 10px;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
   }
   .content {
     width: 160px;
@@ -31,18 +55,6 @@ const ListCard = styled(Link)`
     overflow: hidden;
   }
 `;
-// const ListTitle = styled.div`
-//   width: 160px;
-//   height: 40px;
-//   border: 3px solid gray;
-//   margin: 10px;
-// `;
-// const ListContent = styled.div`
-//   width: 160px;
-//   height: 100px;
-//   border: 3px solid gray;
-//   margin: 10px;
-// `;
 
 function List() {
   const todosStore = useSelector((state) => state.todos);
@@ -66,28 +78,30 @@ function List() {
   console.log(todos);
   console.log(param);
   return (
-    <div>
+    <ListLayout>
       <h2>Working</h2>
       <h2>Done</h2>
-      <ListContainer>
+      <LeftContainer>
         <div>
           {todos.map((data) => {
             if (data.category === param.category) {
               if (data.isDone === false) {
                 return (
-                  <ListCard to={`detail/${data.id}`}>
-                    {/* <Link to={`/detail/${data.id}`}>자세히</Link> */}
-                    <h1 className="title">{data.title}</h1>
-                    <h3 className="content">{data.content}</h3>
-                  </ListCard>
+                  <div to={`detail/${data.id}`}>
+                    <ListCard>
+                      {/* <Link to={`/detail/${data.id}`}>자세히</Link> */}
+                      <h1 className="title">{data.title}</h1>
+                      <h3 className="content">{data.content}</h3>
+                    </ListCard>
+                  </div>
                 );
               }
             }
           })}
         </div>
-      </ListContainer>
+      </LeftContainer>
 
-      <ListContainer>
+      <RightContainer>
         <div>
           {todos.map((data) => {
             if (data.category === param.category) {
@@ -103,8 +117,8 @@ function List() {
             }
           })}
         </div>
-      </ListContainer>
-    </div>
+      </RightContainer>
+    </ListLayout>
   );
 }
 export default List;
