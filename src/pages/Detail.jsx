@@ -47,8 +47,14 @@ const StInput = styled.input`
   width: 550px;
   height: 20px;
 `;
-const commentBox = styled.div`
+const CommentBox = styled.div`
   border: 1px solid black;
+  width: 558px;
+  height: 20px;
+`;
+const CommentBoxOuter = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 `;
 const ButtonStyle = styled.div``;
 function Detail() {
@@ -80,7 +86,10 @@ function Detail() {
     dispatch(__addComment(comment));
     setContent("");
   }
-
+  const commentDeleteHandler = (commentId) => {
+    alert("댓글삭제완료");
+    axios.delete(`http://localhost:3001/comments/${commentId}`);
+  };
   const onClickDeleteButtonHandler = (todoId) => {
     axios.delete(`http://localhost:3001/todos/${todoId}`);
   };
@@ -159,7 +168,19 @@ function Detail() {
                 </button>
               </CommentWriteBox>
               {comments.map((comment) => {
-                return <div>{comment.content}</div>;
+                return (
+                  <CommentBoxOuter>
+                    <CommentBox>{comment.content}</CommentBox>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        commentDeleteHandler(comment.id);
+                      }}
+                    >
+                      삭제
+                    </button>
+                  </CommentBoxOuter>
+                );
               })}
             </div>
           );
@@ -224,6 +245,21 @@ function Detail() {
                   작성
                 </button>
               </CommentWriteBox>
+              {comments.map((comment) => {
+                return (
+                  <CommentBoxOuter>
+                    <CommentBox>{comment.content}</CommentBox>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        commentDeleteHandler(comment.id);
+                      }}
+                    >
+                      삭제
+                    </button>
+                  </CommentBoxOuter>
+                );
+              })}
             </div>
           );
         }

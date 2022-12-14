@@ -1,23 +1,6 @@
 {
   "comments": [
     {
-      "todoId": "hyLvc3NXNZQCWDwA3lcv_",
-      "commentId": "hRRym7K3Lma-0_rY_G26u",
-      "content": "1213333333333ㄷㄷㄷ32",
-      "id": 1
-    },
-    {
-      "todoId": "hyLvc3NXNZQCWDwA3lcv_",
-      "commentId": "OEksH_XIJJLG31Ga1nPF0",
-      "content": "들어간거야지금?",
-      "id": 2
-    },
-    {
-      "id": "hyLvc3NXNZQCWDwA3lcv_",
-      "commentId": "L-O6nfPsHQDah2m98LFzV",
-      "content": "들어간거야지금?3232"
-    },
-    {
       "id": "q5braW56p1b6d8zvT1pi_",
       "todoId": "hyLvc3NXNZQCWDwA3lcv_",
       "content": "된걸까?ㅎ;;"
@@ -349,16 +332,16 @@
     {
       "id": "RMchdPYAq9LPmkCV5vFK1",
       "title": "dd",
-      "content": "dd",
+      "content": "수정...",
       "category": "workout",
       "isDone": false
     },
     {
       "id": "rMiV-E_0b0-sEsfzfzDTD",
       "title": "dd",
-      "content": "dd",
+      "content": "여기는 수정할거 내용 적기",
       "category": "workout",
-      "isDone": false
+      "isDone": true
     }
   ]
 }
