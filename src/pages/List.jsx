@@ -30,11 +30,12 @@ function List() {
         {todos.map((data) => {
           if (data.isDone === false) {
             return (
-              <div>
-                <Link to={`/details/${data.id}`}>자세히</Link>
-                {data.title}
-                {data.content}
-              </div>
+              // <div>
+                <Link to={`/details/${data.id}`}>
+                  {data.title}
+                  {data.content}
+                </Link>
+              // </div>
             );
           }
         })}

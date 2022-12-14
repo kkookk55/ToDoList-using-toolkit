@@ -3,6 +3,7 @@ import axios from "axios";
 import styled from "styled-components";
 import { nanoid } from "@reduxjs/toolkit";
 
+
 const SideBar = () => {
   const [category, setCategory] = useState("workout");
   const [title, setTitle] = useState(""); //추가
@@ -67,6 +68,7 @@ const SideBar = () => {
   // console.log(todos);
   return (
     <>
+    <StTitle>What to do</StTitle>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -135,6 +137,8 @@ export default SideBar;
 const StBox = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  
 `;
 
 const StInput = styled.input`
@@ -144,5 +148,7 @@ const StInput = styled.input`
 `;
 
 const StTitle = styled.h3`
-  font-size: 14px;
+  font-size: 4px;
+  font-family: 'Acme', sans-serif;
+  
 `;
