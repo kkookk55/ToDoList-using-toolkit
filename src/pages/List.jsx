@@ -2,6 +2,47 @@ import { useParams, Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios"; // axios import 합니다.
 import { useSelector } from "react-redux";
+import styled from "styled-components";
+
+const ListContainer = styled.div`
+  width: 600px;
+  height: 600px;
+  display: inline-flex;
+  border: 3px solid yellow;
+`;
+
+const ListCard = styled(Link)`
+  width: 200px;
+  height: 200px;
+  border: 3px solid black;
+  margin: 20px;
+  .title {
+    width: 160px;
+    height: 40px;
+    border: 3px solid gray;
+    margin: 10px;
+    overflow: hidden;
+  }
+  .content {
+    width: 160px;
+    height: 100px;
+    border: 3px solid gray;
+    margin: 10px;
+    overflow: hidden;
+  }
+`;
+// const ListTitle = styled.div`
+//   width: 160px;
+//   height: 40px;
+//   border: 3px solid gray;
+//   margin: 10px;
+// `;
+// const ListContent = styled.div`
+//   width: 160px;
+//   height: 100px;
+//   border: 3px solid gray;
+//   margin: 10px;
+// `;
 
 function List() {
   const todosStore = useSelector((state) => state.todos);
@@ -27,39 +68,42 @@ function List() {
   return (
     <div>
       <h2>Working</h2>
-
-      <div>
-        {todos.map((data) => {
-          if (data.category === param.category) {
-            if (data.isDone === false) {
-              return (
-                <div>
-                  <Link to={`/detail/${data.id}`}>자세히</Link>
-                  {data.title}
-                  {data.content}
-                </div>
-              );
-            }
-          }
-        })}
-      </div>
       <h2>Done</h2>
-
-      <div>
-        {todos.map((data) => {
-          if (data.category === param.category) {
-            if (data.isDone === true) {
-              return (
-                <div>
-                  <Link to={`/detail/${data.id}`}>자세히</Link>
-                  {data.title}
-                  {data.content}
-                </div>
-              );
+      <ListContainer>
+        <div>
+          {todos.map((data) => {
+            if (data.category === param.category) {
+              if (data.isDone === false) {
+                return (
+                  <ListCard to={`detail/${data.id}`}>
+                    {/* <Link to={`/detail/${data.id}`}>자세히</Link> */}
+                    <h1 className="title">{data.title}</h1>
+                    <h3 className="content">{data.content}</h3>
+                  </ListCard>
+                );
+              }
             }
-          }
-        })}
-      </div>
+          })}
+        </div>
+      </ListContainer>
+
+      <ListContainer>
+        <div>
+          {todos.map((data) => {
+            if (data.category === param.category) {
+              if (data.isDone === true) {
+                return (
+                  <ListCard>
+                    <Link to={`/detail/${data.id}`}>자세히</Link>
+                    <h1 className="title">{data.title}</h1>
+                    <h3 className="content">{data.content}</h3>
+                  </ListCard>
+                );
+              }
+            }
+          })}
+        </div>
+      </ListContainer>
     </div>
   );
 }

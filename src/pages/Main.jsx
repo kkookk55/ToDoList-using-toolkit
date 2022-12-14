@@ -107,24 +107,26 @@ const SideBar = () => {
 
         <button>추가하기</button>
       </form>
-      <Link to={`/list/workout`}>운동</Link>
-      {todos.map((data) => {
-        if (data.category === "workout") {
-          return <div>{data.title}</div>;
-        }
-      })}
-      <Link to={`/list/daily`}>일상</Link>
-      {todos.map((data) => {
-        if (data.category === "daily") {
-          return <div>{data.title}</div>;
-        }
-      })}
-      <Link to={`/list/study`}>공부</Link>
-      {todos.map((data) => {
-        if (data.category === "study") {
-          return <div>{data.title}</div>;
-        }
-      })}
+      {/* <div>
+        <Link to={`/list/workout`}>운동</Link>
+        {todos.map((data) => {
+          if (data.category === "workout") {
+            return <div>{data.title}</div>;
+          }
+        })}
+        <Link to={`/list/daily`}>일상</Link>
+        {todos.map((data) => {
+          if (data.category === "daily") {
+            return <div>{data.title}</div>;
+          }
+        })}
+        <Link to={`/list/study`}>공부</Link>
+        {todos.map((data) => {
+          if (data.category === "study") {
+            return <div>{data.title}</div>;
+          }
+        })}
+      </div> */}
     </>
   );
 };
