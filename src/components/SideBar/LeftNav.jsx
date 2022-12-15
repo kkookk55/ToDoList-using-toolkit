@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import SideBar from '../main/sideBar';
+import SideBar from '../main/SideInput';
+
 
 
 
@@ -8,7 +9,6 @@ import SideBar from '../main/sideBar';
 const LeftNav = ({ open }) => {
   return (
     <>
-    
     <BarBox open={open}>
       <SideBar/>
     </BarBox>
@@ -34,5 +34,6 @@ const BarBox = styled.div`
     padding: 4.5rem 0 0 0;
     margin-top: 0;
     transition: transform 0.5s ease-in-out;
+    z-index: 1;
 `;
 

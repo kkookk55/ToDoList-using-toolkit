@@ -15,38 +15,87 @@
       "isDone": false
     },
     {
-      "id": "tO_3HKpLcho60tQaxnTX_",
-      "title": "공부",
-      "content": "공부",
-      "categoty": "study",
+      "id": "sad4m0uDhWTB8Y2EG1_rh",
+      "title": "정민님깨우기",
+      "content": "일어나라 제발",
+      "category": "daily",
       "isDone": false
     },
     {
-      "id": "hLPiDbryzB99Ik1E3pDDh",
-      "title": "ddd",
-      "content": "dd",
-      "categoty": "workout",
+      "id": "TdFUu6LxMM0utTibvXjS6",
+      "title": "영문 혜지 공부하자",
+      "content": "자바스크립트",
+      "category": "study",
       "isDone": false
     },
     {
-      "id": "fAyLGSJYjsiOxMxwwpZHB",
-      "title": "일상",
-      "content": "일상",
-      "categoty": "daily",
+      "id": "WF_Jz88WrQIMUtxTO0cK0",
+      "title": "꾸준한 운동",
+      "content": "운동 꾸준히 하기",
+      "category": "workout",
       "isDone": false
     },
     {
-      "id": "2IY7gei1SF7dHe4TmUr4L",
-      "title": "ㅇㅇ",
-      "content": "ㅇㅇ",
-      "categoty": "workout",
+      "id": "9kiLpsT3tJx4h1Nz6VRHO",
+      "title": "10시에 짐 가기",
+      "content": "다리운동",
+      "category": "workout",
       "isDone": false
     },
     {
-      "id": "qoWPsJ-oZRmkblmtXTnaA",
-      "title": "ㄴㄴ",
-      "content": "ㄴㄴ",
-      "categoty": "daily",
+      "id": "Cquxj2gUDOmaotmGhGWjl",
+      "title": "일찍자기",
+      "content": "수면필요..",
+      "category": "daily",
+      "isDone": false
+    },
+    {
+      "id": "mUyuNzAKbL7FpjFpjG9w1",
+      "title": "",
+      "content": "",
+      "category": "workout",
+      "isDone": false
+    },
+    {
+      "id": "xqcHgEhnCc_MiFVYybxNL",
+      "title": "",
+      "content": "",
+      "category": "workout",
+      "isDone": false
+    },
+    {
+      "id": "UGrkaHskcy5mA0DRU_4k9",
+      "title": "",
+      "content": "",
+      "category": "daily",
+      "isDone": false
+    },
+    {
+      "id": "RA8cDva_2t78y0E4O7k7C",
+      "title": "",
+      "content": "",
+      "category": "workout",
+      "isDone": false
+    },
+    {
+      "id": "e6633jVTp0gob993aUOmf",
+      "title": "자바공부하기",
+      "content": "내일하기",
+      "category": "study",
+      "isDone": false
+    },
+    {
+      "id": "lWaRHblJtEE6XOHLqTIjy",
+      "title": "",
+      "content": "",
+      "category": "workout",
+      "isDone": false
+    },
+    {
+      "id": "VXgD8eE4BfwFcB6loIbnK",
+      "title": "",
+      "content": "",
+      "category": "workout",
       "isDone": false
     }
   ]

@@ -14,21 +14,25 @@ const StyledBurger = styled.div`
     display: flex;
     justify-content: space-around;
     flex-flow: column nowrap;
+    background-color: #ffff;
 }
 
 /* 햄버거 메뉴 아이콘 */
 
 
 div {
-    width: 2rem;
+    width: 1.7rem;
     height: 0.25rem;
-    background-color: ${({ open }) => open ? '#efb3b3;' : '#EEC0C0;'};
+    background-color: ${({ open }) => open ? '#080707;' : '#060303;'};
     border-radius: 10px;
     transform-origin: 1px;
     transition: all 0.3s linear;
+    
+
+
 
     &:nth-child(1) {
-        transform: ${({ open }) => open ? 'rotate(45deg)' : 'rotate(0)'};
+        transform: ${({ open }) => open ? 'rotate(55deg)' : 'rotate(0)'};
     }
 
     &:nth-child(2) {
@@ -37,7 +41,8 @@ div {
     }
 
     &:nth-child(3) {
-        transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(0)'};
+        width: ${({ open }) => open ? `1.7rem` : `1.2rem`};
+        transform: ${({ open }) => open ? 'rotate(-55deg)' : 'rotate(0)'};
     }
 }
 `
