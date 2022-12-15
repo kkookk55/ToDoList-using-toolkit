@@ -12,7 +12,9 @@ function List() {
   const param = useParams();
   console.log(param);
   const dispatch = useDispatch();
-
+  const linkStyle = {
+    textDecoration: "none",
+  };
   const todos = useSelector((state) => state.todos.todos);
   console.log(todos);
 
@@ -30,7 +32,7 @@ function List() {
               return (
                 <>
                   <LinkBox>
-                    <Link to={`/detail/${data.id}`}>
+                    <Link to={`/detail/${data.id}`} style={linkStyle}>
                       <ListCard backgroundColor="#EEC0C0">
                         <h1 className="title" backgroundColor="#d8d8d1">
                           {data.title}
@@ -55,7 +57,7 @@ function List() {
             if (data.isDone === true) {
               return (
                 <LinkBox>
-                  <Link to={`/detail/${data.id}`}>
+                  <Link to={`/detail/${data.id}`} style={linkStyle}>
                     <ListCard backgroundColor="#EEC0C0">
                       <h1 className="title" backgroundColor="">
                         {data.title}
@@ -126,6 +128,7 @@ const ListCard = styled.div`
   border-radius: 10px;
   background-color: ${(props) => props.backgroundColor};
   margin: 10px;
+
   padding: 10px;
 
   .title {

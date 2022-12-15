@@ -7,11 +7,12 @@ import styled from "styled-components";
 const StBox = styled.div`
   text-align: center;
   width: 700px;
-  height: 500px;
-  border: 1px solid red;
+
   margin: auto;
 `;
 const TitleBox = styled.div`
+  text-shadow: 2px 2px 2px gray;
+  color: #ebbead;
   font-size: 30px;
   font-weight: bold;
   padding-bottom: 30px;
@@ -19,10 +20,13 @@ const TitleBox = styled.div`
 const CategoryBox = styled.div`
   text-align: left;
   padding: 20px;
-  border: 1px solid black;
+  color: #ffeded;
+  border-radius: 13px;
+  background-color: #efcdcd;
 `;
 const ContentBox = styled.div`
-  border: 2px solid green;
+  margin-top: 20px;
+  border: 2px solid #e2d8ca;
   border-radius: 10px;
   min-height: 270px;
   max-height: 270px;
@@ -30,11 +34,13 @@ const ContentBox = styled.div`
 const ButtonBox = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  border: 2px solid blue;
+
   margin-top: 20px;
 `;
+
 const StInput = styled.input`
-  border: 2px solid green;
+  margin-top: 20px;
+  border: 2px solid #e2d8ca;
   border-radius: 10px;
   width: 700px;
   min-height: 270px;
@@ -60,7 +66,7 @@ function Modify() {
   }, []);
   return (
     <StBox>
-      <TitleBox>{item.title} //완료한일 </TitleBox>
+      <TitleBox>{item.title} </TitleBox>
       <CategoryBox>
         카테고리 로고 / {item.category} /{/* {item.createAt} */}
       </CategoryBox>

@@ -7,15 +7,18 @@ import { __addComment, __getTodoById } from "../redux/modules/todosSlice";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { nanoid } from "nanoid";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenNib, faPencil } from "@fortawesome/free-solid-svg-icons";
 
 const StBox = styled.div`
   text-align: center;
   width: 700px;
 
-  border: 1px solid red;
   margin: auto;
 `;
 const TitleBox = styled.div`
+  text-shadow: 2px 2px 2px gray;
+  color: #ebbead;
   font-size: 30px;
   font-weight: bold;
   padding-bottom: 30px;
@@ -23,10 +26,13 @@ const TitleBox = styled.div`
 const CategoryBox = styled.div`
   text-align: left;
   padding: 20px;
-  border: 1px solid black;
+  color: #ffeded;
+  border-radius: 13px;
+  background-color: #efcdcd;
 `;
 const ContentBox = styled.div`
-  border: 2px solid green;
+  margin-top: 20px;
+  border: 2px solid #e2d8ca;
   border-radius: 10px;
   min-height: 270px;
   max-height: 270px;
@@ -34,25 +40,29 @@ const ContentBox = styled.div`
 const ButtonBox = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  border: 2px solid blue;
+
   margin-top: 20px;
 `;
 const CommentWriteBox = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border: 2px solid red;
+
+  border: 3px solid #99d7ec;
   margin-top: 20px;
+  margin-bottom: 30px;
 `;
 const StInput = styled.input`
   width: 550px;
   height: 20px;
+  border: none;
 `;
 const CommentBox = styled.div`
-  border: 1px solid black;
   width: 558px;
   height: 20px;
 `;
 const CommentBoxOuter = styled.div`
+  border: 2px solid #acdcec;
+  margin-top: 2px;
   display: grid;
   grid-template-columns: 1fr 1fr;
 `;
@@ -104,9 +114,10 @@ function Detail() {
         if (item.isDone === false) {
           return (
             <div>
-              <TitleBox>{item.title} //진행중 </TitleBox>
+              <TitleBox>{item.title}</TitleBox>
               <CategoryBox>
-                카테고리 로고 / {item.category} /{/* {item.createAt} */}
+                <FontAwesomeIcon icon={faPencil} />
+                {item.category}
               </CategoryBox>
 
               <ContentBox>{item.content}</ContentBox>
@@ -189,7 +200,8 @@ function Detail() {
             <div>
               <TitleBox>{item.title} //완료한일 </TitleBox>
               <CategoryBox>
-                카테고리 로고 / {item.category} /{/* {item.createAt} */}
+                <FontAwesomeIcon icon={faPencil} />
+                {item.category}
               </CategoryBox>
 
               <ContentBox>{item.content}</ContentBox>
