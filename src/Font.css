@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+
+
+
+.selected:active {
+    color: red;
+}

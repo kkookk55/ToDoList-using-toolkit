@@ -123,7 +123,7 @@ const LinkBox = styled(Link)`
 
 const ListCard = styled.div`
   /* width: 200px; */
-  height: 200px;
+  height: 220px;
   border: 3px solid white;
   border-radius: 10px;
   background-color: ${(props) => props.backgroundColor};
@@ -156,7 +156,10 @@ const ListCard = styled.div`
     background-color: ${(props) => props.backgroundColor};
   }
   .content::-webkit-scrollbar {
-    display: none; /* Chrome , Safari , Opera */
+    display: none;
+  }
+  .title::-webkit-scrollbar {
+    display: none;
   }
   &:hover {
     scale: 1.03;
