@@ -30,7 +30,7 @@ const HeaderBox = styled.div`
 
 const StBox = styled.div`
   width: 100vw;
-  height: 50px;
+  height: 55px;
   margin-top: 80px;
   background-color: #eec0c0;
   align-items: center;

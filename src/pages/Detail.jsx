@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React, { Children, useEffect, useState } from "react";
 import axios from "axios"; // axios import 합니다.
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -9,12 +9,13 @@ import { useSelector } from "react-redux/es/hooks/useSelector";
 import { nanoid } from "nanoid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenNib, faPencil } from "@fortawesome/free-solid-svg-icons";
+import Header from "../components/main/Header";
+import Button from "../components/Button";
 
 const StBox = styled.div`
   text-align: center;
   width: 700px;
-
-  margin: auto;
+  margin: 0 auto;
 `;
 const TitleBox = styled.div`
   text-shadow: 2px 2px 2px gray;
@@ -29,6 +30,13 @@ const CategoryBox = styled.div`
   color: #ffeded;
   border-radius: 13px;
   background-color: #efcdcd;
+`;
+const Categor2yBox = styled.div`
+  text-align: left;
+  padding: 20px;
+  color: #ffeded;
+  border-radius: 13px;
+  background-color: #bfdfed;
 `;
 const ContentBox = styled.div`
   margin-top: 20px;
@@ -50,6 +58,12 @@ const CommentWriteBox = styled.div`
   border: 3px solid #99d7ec;
   margin-top: 20px;
   margin-bottom: 30px;
+`;
+const StBoxOuter = styled.div`
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  top: 150px;
 `;
 const StInput = styled.input`
   width: 550px;
@@ -109,174 +123,179 @@ function Detail() {
   };
 
   return (
-    <StBox>
-      {todos.map((item) => {
-        if (item.isDone === false) {
-          return (
-            <div>
-              <TitleBox>{item.title}</TitleBox>
-              <CategoryBox>
-                <FontAwesomeIcon icon={faPencil} />
-                {item.category}
-              </CategoryBox>
+    <div>
+      <Header></Header>
 
-              <ContentBox>{item.content}</ContentBox>
-              <ButtonBox>
-                <ButtonStyle>
-                  <Link to={`/list/${item.category}`}>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        onClickEditButtonHandler(item.id, {
-                          isDone: !item.isDone,
-                        })
-                      }
-                    >
-                      완료하기
-                    </button>
-                  </Link>
-                </ButtonStyle>
-                <ButtonStyle></ButtonStyle>
-                <ButtonStyle>
-                  <Link to={`/list/${item.category}`}>
-                    <button>돌아가기</button>
-                  </Link>
-                </ButtonStyle>
-                <ButtonStyle>
-                  <Link to={`/modify/${item.id}`}>
-                    <button>수정하기</button>
-                  </Link>
-                </ButtonStyle>
-                <ButtonStyle>
-                  <Link to={`/list/${item.category}`}>
-                    <button
-                      type="button"
-                      onClick={() => onClickDeleteButtonHandler(item.id)}
-                    >
-                      삭제하기
-                    </button>
-                  </Link>
-                </ButtonStyle>
-              </ButtonBox>
-              <CommentWriteBox>
-                <StInput
-                  type="text"
-                  value={content}
-                  placeholder="comment"
-                  onChange={(event) => {
-                    setContent(event.target.value);
-                    console.log(comment);
-                  }}
-                />
+      <StBoxOuter>
+        <StBox>
+          {todos.map((item) => {
+            if (item.isDone === false) {
+              return (
+                <div>
+                  <TitleBox>{item.title}</TitleBox>
+                  <Categor2yBox>
+                    <FontAwesomeIcon icon={faPencil} />
+                    {item.category}
+                  </Categor2yBox>
 
-                <button
-                  type="button"
-                  onClick={() => {
-                    writeCommentHandler();
-                  }}
-                >
-                  작성
-                </button>
-              </CommentWriteBox>
-              {comments.map((comment) => {
-                return (
-                  <CommentBoxOuter>
-                    <CommentBox>{comment.content}</CommentBox>
+                  <ContentBox>{item.content}</ContentBox>
+                  <ButtonBox>
+                    <ButtonStyle>
+                      <Link to={`/list/${item.category}`}>
+                        <button
+                          onClick={() => {
+                            onClickEditButtonHandler(item.id, {
+                              isDone: !item.isDone,
+                            });
+                          }}
+                        >
+                          완료하기
+                        </button>
+                      </Link>
+                    </ButtonStyle>
+                    <ButtonStyle></ButtonStyle>
+                    <ButtonStyle>
+                      <Link to={`/list/${item.category}`}>
+                        <button on>돌아가기</button>
+                      </Link>
+                    </ButtonStyle>
+                    <ButtonStyle>
+                      <Link to={`/modify/${item.id}`}>
+                        <button>수정하기</button>
+                      </Link>
+                    </ButtonStyle>
+                    <ButtonStyle>
+                      <Link to={`/list/${item.category}`}>
+                        <button
+                          type="button"
+                          onClick={() => onClickDeleteButtonHandler(item.id)}
+                        >
+                          삭제하기
+                        </button>
+                      </Link>
+                    </ButtonStyle>
+                  </ButtonBox>
+                  <CommentWriteBox>
+                    <StInput
+                      type="text"
+                      value={content}
+                      placeholder="comment"
+                      onChange={(event) => {
+                        setContent(event.target.value);
+                        console.log(comment);
+                      }}
+                    />
+
                     <button
                       type="button"
                       onClick={() => {
-                        commentDeleteHandler(comment.id);
+                        writeCommentHandler();
                       }}
                     >
-                      삭제
+                      작성
                     </button>
-                  </CommentBoxOuter>
-                );
-              })}
-            </div>
-          );
-        } else if (item.isDone === true) {
-          return (
-            <div>
-              <TitleBox>{item.title} //완료한일 </TitleBox>
-              <CategoryBox>
-                <FontAwesomeIcon icon={faPencil} />
-                {item.category}
-              </CategoryBox>
+                  </CommentWriteBox>
+                  {comments.map((comment) => {
+                    return (
+                      <CommentBoxOuter>
+                        <CommentBox>{comment.content}</CommentBox>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            commentDeleteHandler(comment.id);
+                          }}
+                        >
+                          삭제
+                        </button>
+                      </CommentBoxOuter>
+                    );
+                  })}
+                </div>
+              );
+            } else if (item.isDone === true) {
+              return (
+                <div>
+                  <TitleBox>{item.title} </TitleBox>
+                  <CategoryBox>
+                    <FontAwesomeIcon icon={faPencil} />
+                    {item.category}
+                  </CategoryBox>
 
-              <ContentBox>{item.content}</ContentBox>
-              <ButtonBox>
-                <ButtonStyle>
-                  <Link to={`/list/${item.category}`}>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        onClickEditButtonHandler(item.id, {
-                          isDone: !item.isDone,
-                        })
-                      }
-                    >
-                      취소하기
-                    </button>
-                  </Link>
-                </ButtonStyle>
-                <ButtonStyle></ButtonStyle>
-                <ButtonStyle>
-                  <Link to={`/list/${item.category}`}>
-                    <button>돌아가기</button>
-                  </Link>
-                </ButtonStyle>
-                <ButtonStyle></ButtonStyle>
-                <ButtonStyle>
-                  <Link to={`/list/${item.category}`}>
-                    <button
-                      type="button"
-                      onClick={() => onClickDeleteButtonHandler(item.id)}
-                    >
-                      삭제하기
-                    </button>
-                  </Link>
-                </ButtonStyle>
-              </ButtonBox>
-              <CommentWriteBox>
-                <StInput
-                  type="text"
-                  value={content}
-                  placeholder="comment"
-                  onChange={(event) => {
-                    setContent(event.target.value);
-                    console.log(comment);
-                  }}
-                />
-                <button
-                  type="button"
-                  onClick={() => {
-                    writeCommentHandler();
-                  }}
-                >
-                  작성
-                </button>
-              </CommentWriteBox>
-              {comments.map((comment) => {
-                return (
-                  <CommentBoxOuter>
-                    <CommentBox>{comment.content}</CommentBox>
+                  <ContentBox>{item.content}</ContentBox>
+                  <ButtonBox>
+                    <ButtonStyle>
+                      <Link to={`/list/${item.category}`}>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            onClickEditButtonHandler(item.id, {
+                              isDone: !item.isDone,
+                            })
+                          }
+                        >
+                          취소하기
+                        </button>
+                      </Link>
+                    </ButtonStyle>
+                    <ButtonStyle></ButtonStyle>
+                    <ButtonStyle>
+                      <Link to={`/list/${item.category}`}>
+                        <button>돌아가기</button>
+                      </Link>
+                    </ButtonStyle>
+                    <ButtonStyle></ButtonStyle>
+                    <ButtonStyle>
+                      <Link to={`/list/${item.category}`}>
+                        <button
+                          type="button"
+                          onClick={() => onClickDeleteButtonHandler(item.id)}
+                        >
+                          삭제하기
+                        </button>
+                      </Link>
+                    </ButtonStyle>
+                  </ButtonBox>
+                  <CommentWriteBox>
+                    <StInput
+                      type="text"
+                      value={content}
+                      placeholder="comment"
+                      onChange={(event) => {
+                        setContent(event.target.value);
+                        console.log(comment);
+                      }}
+                    />
                     <button
                       type="button"
                       onClick={() => {
-                        commentDeleteHandler(comment.id);
+                        writeCommentHandler();
                       }}
                     >
-                      삭제
+                      작성
                     </button>
-                  </CommentBoxOuter>
-                );
-              })}
-            </div>
-          );
-        }
-      })}
-    </StBox>
+                  </CommentWriteBox>
+                  {comments.map((comment) => {
+                    return (
+                      <CommentBoxOuter>
+                        <CommentBox>{comment.content}</CommentBox>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            commentDeleteHandler(comment.id);
+                          }}
+                        >
+                          삭제
+                        </button>
+                      </CommentBoxOuter>
+                    );
+                  })}
+                </div>
+              );
+            }
+          })}
+        </StBox>
+      </StBoxOuter>
+    </div>
   );
 }
 export default Detail;

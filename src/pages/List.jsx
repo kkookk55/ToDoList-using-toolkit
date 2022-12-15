@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { __getTodos } from "../redux/modules/todosSlice";
 import { __getListTodos } from "../redux/modules/todosSlice";
 import styled from "styled-components";
+import Header from "../components/main/Header";
 
 function List() {
   const param = useParams();
@@ -16,14 +17,15 @@ function List() {
     textDecoration: "none",
   };
   const todos = useSelector((state) => state.todos.todos);
-  console.log(todos);
 
   useEffect(() => {
     dispatch(__getListTodos(param.category));
-  }, []);
+  }, [todos]);
 
   return (
     <ListLayout>
+      <PTitle>{param.category}</PTitle>
+      <Header />
       <LeftContainer>
         <StTitle>Working</StTitle>
         <StGridBox>
@@ -33,7 +35,7 @@ function List() {
                 <>
                   <LinkBox>
                     <Link to={`/detail/${data.id}`} style={linkStyle}>
-                      <ListCard backgroundColor="#EEC0C0">
+                      <ListCard backgroundColor="#bfdfed">
                         <h1 className="title" backgroundColor="#d8d8d1">
                           {data.title}
                         </h1>
@@ -58,7 +60,7 @@ function List() {
               return (
                 <LinkBox>
                   <Link to={`/detail/${data.id}`} style={linkStyle}>
-                    <ListCard backgroundColor="#EEC0C0">
+                    <ListCard backgroundColor="#f6cccc">
                       <h1 className="title" backgroundColor="">
                         {data.title}
                       </h1>
@@ -83,6 +85,8 @@ const ListLayout = styled.div`
   height: 100vh;
   display: flex;
   margin: 0;
+  position: absolute;
+  top: 130px;
 `;
 const StTitle = styled.h2`
   text-align: center;
@@ -113,7 +117,7 @@ const RightContainer = styled.div`
 `;
 const StGridBox = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(40%, auto));
+  grid-template-columns: repeat(2, 1fr);
 `;
 
 const LinkBox = styled(Link)`
@@ -121,6 +125,14 @@ const LinkBox = styled(Link)`
   cursor: pointer;
 `;
 
+const PTitle = styled.p`
+  position: absolute;
+  left: 45%;
+  top: -20px;
+  font-size: 30px;
+  font-weight: bold;
+  color: gray;
+`;
 const ListCard = styled.div`
   /* width: 200px; */
   height: 220px;

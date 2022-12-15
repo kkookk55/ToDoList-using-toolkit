@@ -62,7 +62,7 @@ const TotalListBox = () => {
   };
   useEffect(() => {
     fetchTodos();
-  }, []);
+  }, [todoStore]);
 
   return (
     <>
