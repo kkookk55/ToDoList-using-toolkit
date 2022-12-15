@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Burger from "../SideBar/Burger";
 import "../../Font.css";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -9,7 +10,7 @@ const Header = () => {
       <Burger />
       <StBox>
         <StTitle>
-          <StSpan>T</StSpan>TODOLIST
+          <StLink to={`/`}>TODOLIST</StLink>
         </StTitle>
       </StBox>
     </HeaderBox>
@@ -17,6 +18,10 @@ const Header = () => {
 };
 
 export default Header;
+
+const StLink = styled(Link)`
+  text-decoration: none;
+`;
 
 const HeaderBox = styled.div`
   width: 100vw;
@@ -43,9 +48,4 @@ const StTitle = styled.h1`
   padding-left: 20px;
   font-family: "Caveat Brush", cursive;
   letter-spacing: 0.2em;
-`;
-
-const StSpan = styled.span`
-  font-size: 22px;
-  z-index: -1;
 `;

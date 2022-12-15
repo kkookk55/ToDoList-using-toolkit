@@ -73,7 +73,9 @@ const TotalListBox = () => {
           {workouts?.map((data) => {
             return (
               <EachList>
-                <StText>{data.title}</StText>
+                <DetailLink to={`/detail/${data.id}`}>
+                  <StText>{data.title}</StText>
+                </DetailLink>
               </EachList>
             );
           })}
@@ -83,7 +85,9 @@ const TotalListBox = () => {
           {dailys?.map((data) => {
             return (
               <EachList>
-                <StText>{data.title}</StText>
+                <DetailLink to={`/detail/${data.id}`}>
+                  <StText>{data.title}</StText>
+                </DetailLink>
               </EachList>
             );
           })}
@@ -93,7 +97,9 @@ const TotalListBox = () => {
           {studys?.map((data) => {
             return (
               <EachList>
-                <StText>{data.title}</StText>
+                <DetailLink to={`/detail/${data.id}`}>
+                  <StText>{data.title}</StText>
+                </DetailLink>
               </EachList>
             );
           })}
@@ -103,6 +109,11 @@ const TotalListBox = () => {
   );
 };
 export default TotalListBox;
+
+const DetailLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+`;
 
 const TotalBox = styled.div`
   max-width: 1440px;
@@ -142,4 +153,7 @@ const StText = styled.li`
   list-decoration: square;
   font-family: "Poor Story", cursive;
   font-size: 16px;
+  &:hover {
+    scale: 1.05;
+  }
 `;

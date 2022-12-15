@@ -2,102 +2,32 @@
   "comments": [],
   "todos": [
     {
-      "id": "LMe54hZNHzKDvHw6TFUaz",
-      "title": "제목",
-      "content": "내용",
+      "id": "1P3QT5tf-lY8kZMYfW0XX",
+      "title": "운동하기",
+      "content": "열심히 운동합시다",
       "category": "workout",
       "isDone": true
     },
     {
-      "id": "C0CJiFDouLfP8o7RKYW5o",
-      "title": "ㅇㄴㅇ",
-      "content": "ㄴㅇㅇㄴ",
+      "id": "Y_mpUNPG-AJOh1ryTS9i0",
+      "title": "정민님 낮잠자기",
+      "content": "잠은 보약입니다",
       "category": "daily",
       "isDone": true
     },
     {
-      "id": "QV8OKJJN9gLo5ivLSJ8bJ",
-      "title": "ㅇㄴㅇ",
-      "content": "ㄴㅇㅇㄴ",
+      "id": "sPfWhI2G6ARHbJEgYWOfb",
+      "title": "깃 공부하기",
+      "content": "깃 너무 어려워요",
       "category": "study",
       "isDone": true
     },
     {
-      "id": "DIGOga0e56RXVQOnAti3J",
-      "title": "dsd",
-      "content": "dsdds",
+      "id": "JT70kvO7HPw6vdAG244sW",
+      "title": "청소하기",
+      "content": "대청소 합시다",
       "category": "daily",
       "isDone": true
-    },
-    {
-      "id": "8B5flM2IrxsatswjmHVtp",
-      "title": "dsddsd",
-      "content": "dsddsdsds",
-      "category": "study",
-      "isDone": true
-    },
-    {
-      "id": "E8EI1RxTFp_FqheopZUpq",
-      "title": "ㄴㅇㄴ",
-      "content": "ㄴㅇㄴㅇㄴㄴ",
-      "category": "workout",
-      "isDone": true
-    },
-    {
-      "id": "VKB0YWp2MHMRnfwSJa3w8",
-      "title": "작성되나?",
-      "content": "ㅋㅋㅋ",
-      "category": "workout",
-      "isDone": false
-    },
-    {
-      "id": "qUApJlATZFr2TrNJ-VEiA",
-      "title": "운동 제목1",
-      "content": "운동 내용 1",
-      "category": "workout",
-      "isDone": false
-    },
-    {
-      "id": "zdP4UwL0O7_2zRqqYBqkj",
-      "title": "ㄴㅇㄴ",
-      "content": "ㅇㄴㅇ",
-      "category": "workout",
-      "isDone": false
-    },
-    {
-      "id": "hFnQKW5dabZrxDfxFQlWh",
-      "title": "ㄴㅇㄴㄴㅇㄴ",
-      "content": "ㅇㄴㅇㅇㄴ",
-      "category": "workout",
-      "isDone": true
-    },
-    {
-      "id": "8qipc9cO-Ym163-l6_sh8",
-      "title": "",
-      "content": "",
-      "category": "workout",
-      "isDone": false
-    },
-    {
-      "id": "iDNvQjy-S7e6j9KjgbsQU",
-      "title": "ㅇㄴㅇㄴ",
-      "content": "ㅇㄴㅇㄴ",
-      "category": "daily",
-      "isDone": false
-    },
-    {
-      "id": "YDN3KfEOIJoKm8MTyNQ5a",
-      "title": "ㅇㄴㅇㄴ",
-      "content": "ㅇㄴㅇㄴ",
-      "category": "study",
-      "isDone": false
-    },
-    {
-      "id": "9tGHbcIxtnmwZ3tIPI0Eh",
-      "title": "공부바로보여?",
-      "content": "ㅇㄴㅇㄴ",
-      "category": "study",
-      "isDone": false
     }
   ]
 }

@@ -8,9 +8,11 @@ import { __getTodos } from "../redux/modules/todosSlice";
 import { __getListTodos } from "../redux/modules/todosSlice";
 import styled from "styled-components";
 import Header from "../components/main/Header";
+import "../Font.css";
 
 function List() {
   const param = useParams();
+
   console.log(param);
   const dispatch = useDispatch();
   const linkStyle = {
@@ -90,6 +92,7 @@ const ListLayout = styled.div`
 `;
 const StTitle = styled.h2`
   text-align: center;
+  font-family: "Poor Story", cursive;
 `;
 
 // const ListHeader = styled.div`
@@ -105,6 +108,8 @@ const LeftContainer = styled.div`
   grid-auto-rows: minmax(100px, auto);
   grid-gap: 10px; */
   width: 50%;
+  height: 100%;
+  overflow-y: hidden;
 `;
 
 const RightContainer = styled.div`
@@ -132,6 +137,7 @@ const PTitle = styled.p`
   font-size: 30px;
   font-weight: bold;
   color: gray;
+  font-family: "Poor Story", cursive;
 `;
 const ListCard = styled.div`
   /* width: 200px; */
@@ -156,6 +162,7 @@ const ListCard = styled.div`
     font-weight: bold;
     color: black;
     background-color: ${(props) => props.backgroundColor};
+    font-family: "Poor Story", cursive;
   }
   .content {
     /* width: 160px; */
@@ -166,6 +173,8 @@ const ListCard = styled.div`
     margin: 10px;
     overflow: scroll;
     background-color: ${(props) => props.backgroundColor};
+    font-family: "Poor Story", cursive;
+    color: black;
   }
   .content::-webkit-scrollbar {
     display: none;

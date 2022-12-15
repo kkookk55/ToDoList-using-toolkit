@@ -159,6 +159,7 @@ const Stbutton1 = styled.button`
   border-radius: 10px;
   background-color: #edcfcf86;
   font-size: 12px;
+  border: none;
 `;
 
 const BtnBox = styled.div`
@@ -176,7 +177,12 @@ const StAddbutton = styled.button`
   width: 100px;
   height: 30px;
 
-  background-color: red;
+  background-color: #edcfcf86;
   margin: 50px auto;
   display: block;
+  border: none;
+  border-radius: 10px;
+  &:hover {
+    scale: 1.05;
+  }
 `;

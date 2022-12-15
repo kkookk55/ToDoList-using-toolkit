@@ -16,6 +16,7 @@ const StBox = styled.div`
   text-align: center;
   width: 700px;
   margin: 0 auto;
+  font-family: "Poor Story", cursive;
 `;
 const TitleBox = styled.div`
   text-shadow: 2px 2px 2px gray;
@@ -80,6 +81,9 @@ const CommentBoxOuter = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
 `;
+const StButton = styled.button`
+  font-family: "Poor Story", cursive;
+`;
 const ButtonStyle = styled.div``;
 function Detail() {
   const [comments, setComments] = useState([]);
@@ -142,7 +146,7 @@ function Detail() {
                   <ButtonBox>
                     <ButtonStyle>
                       <Link to={`/list/${item.category}`}>
-                        <button
+                        <StButton
                           onClick={() => {
                             onClickEditButtonHandler(item.id, {
                               isDone: !item.isDone,
@@ -150,28 +154,28 @@ function Detail() {
                           }}
                         >
                           완료하기
-                        </button>
+                        </StButton>
                       </Link>
                     </ButtonStyle>
                     <ButtonStyle></ButtonStyle>
                     <ButtonStyle>
                       <Link to={`/list/${item.category}`}>
-                        <button on>돌아가기</button>
+                        <StButton type="button">돌아가기</StButton>
                       </Link>
                     </ButtonStyle>
                     <ButtonStyle>
                       <Link to={`/modify/${item.id}`}>
-                        <button>수정하기</button>
+                        <StButton>수정하기</StButton>
                       </Link>
                     </ButtonStyle>
                     <ButtonStyle>
                       <Link to={`/list/${item.category}`}>
-                        <button
+                        <StButton
                           type="button"
                           onClick={() => onClickDeleteButtonHandler(item.id)}
                         >
                           삭제하기
-                        </button>
+                        </StButton>
                       </Link>
                     </ButtonStyle>
                   </ButtonBox>
@@ -186,27 +190,27 @@ function Detail() {
                       }}
                     />
 
-                    <button
+                    <StButton
                       type="button"
                       onClick={() => {
                         writeCommentHandler();
                       }}
                     >
                       작성
-                    </button>
+                    </StButton>
                   </CommentWriteBox>
                   {comments.map((comment) => {
                     return (
                       <CommentBoxOuter>
                         <CommentBox>{comment.content}</CommentBox>
-                        <button
+                        <StButton
                           type="button"
                           onClick={() => {
                             commentDeleteHandler(comment.id);
                           }}
                         >
                           삭제
-                        </button>
+                        </StButton>
                       </CommentBoxOuter>
                     );
                   })}
@@ -225,7 +229,7 @@ function Detail() {
                   <ButtonBox>
                     <ButtonStyle>
                       <Link to={`/list/${item.category}`}>
-                        <button
+                        <StButton
                           type="button"
                           onClick={() =>
                             onClickEditButtonHandler(item.id, {
@@ -234,24 +238,24 @@ function Detail() {
                           }
                         >
                           취소하기
-                        </button>
+                        </StButton>
                       </Link>
                     </ButtonStyle>
                     <ButtonStyle></ButtonStyle>
                     <ButtonStyle>
                       <Link to={`/list/${item.category}`}>
-                        <button>돌아가기</button>
+                        <StButton>돌아가기</StButton>
                       </Link>
                     </ButtonStyle>
                     <ButtonStyle></ButtonStyle>
                     <ButtonStyle>
                       <Link to={`/list/${item.category}`}>
-                        <button
+                        <StButton
                           type="button"
                           onClick={() => onClickDeleteButtonHandler(item.id)}
                         >
                           삭제하기
-                        </button>
+                        </StButton>
                       </Link>
                     </ButtonStyle>
                   </ButtonBox>
@@ -265,27 +269,27 @@ function Detail() {
                         console.log(comment);
                       }}
                     />
-                    <button
+                    <StButton
                       type="button"
                       onClick={() => {
                         writeCommentHandler();
                       }}
                     >
                       작성
-                    </button>
+                    </StButton>
                   </CommentWriteBox>
                   {comments.map((comment) => {
                     return (
                       <CommentBoxOuter>
                         <CommentBox>{comment.content}</CommentBox>
-                        <button
+                        <StButton
                           type="button"
                           onClick={() => {
                             commentDeleteHandler(comment.id);
                           }}
                         >
                           삭제
-                        </button>
+                        </StButton>
                       </CommentBoxOuter>
                     );
                   })}
