@@ -4,6 +4,31 @@
       "id": "Z8UqC7rjqOxR6sG11jVUg",
       "todoId": "qUApJlATZFr2TrNJ-VEiA",
       "content": "수정 ㅋ"
+    },
+    {
+      "id": "ghkxJTxlK-hKTk6r93xDj",
+      "todoId": "qUApJlATZFr2TrNJ-VEiA",
+      "content": "ㅋㅋ"
+    },
+    {
+      "id": "6zmgXyYoazs5ZufW0Vz3v",
+      "todoId": "LMe54hZNHzKDvHw6TFUaz",
+      "content": "ㅋㅋ"
+    },
+    {
+      "id": "D7fk-Hlk9471NvYJ9LqD8",
+      "todoId": "LMe54hZNHzKDvHw6TFUaz",
+      "content": "ㅋㅋㅋㅋ"
+    },
+    {
+      "id": "8UkpnAfMcR3TwSbJqOSmU",
+      "todoId": "LMe54hZNHzKDvHw6TFUaz",
+      "content": "ㅋㅋㅋㅋㅋ"
+    },
+    {
+      "id": "T6-sG0tz6Mvh9zTRzOxRR",
+      "todoId": "LMe54hZNHzKDvHw6TFUaz",
+      "content": "ㅋㅋㅋㅋㅋㅋㅋㅋㅋ"
     }
   ],
   "todos": [
@@ -61,7 +86,7 @@
       "title": "운동 제목1",
       "content": "이거 인풋임 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
       "category": "workout",
-      "isDone": false
+      "isDone": true
     },
     {
       "id": "zdP4UwL0O7_2zRqqYBqkj",
