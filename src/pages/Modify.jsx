@@ -70,7 +70,7 @@ function Modify() {
     <StBox>
       <TitleBox>{item.title} </TitleBox>
       <CategoryBox>
-        카테고리 로고 / {item.category} /{/* {item.createAt} */}
+        <FontAwesomeIcon icon={faPencil} /> {item.category}
       </CategoryBox>
 
       <StInput

@@ -1,5 +1,11 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "id": "Z8UqC7rjqOxR6sG11jVUg",
+      "todoId": "qUApJlATZFr2TrNJ-VEiA",
+      "content": "수정 ㅋ"
+    }
+  ],
   "todos": [
     {
       "id": "LMe54hZNHzKDvHw6TFUaz",
@@ -53,7 +59,7 @@
     {
       "id": "qUApJlATZFr2TrNJ-VEiA",
       "title": "운동 제목1",
-      "content": "운동 내용 1",
+      "content": "이거 인풋임 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
       "category": "workout",
       "isDone": false
     },
@@ -70,13 +76,6 @@
       "content": "ㅇㄴㅇㅇㄴ",
       "category": "workout",
       "isDone": true
-    },
-    {
-      "id": "8qipc9cO-Ym163-l6_sh8",
-      "title": "",
-      "content": "",
-      "category": "workout",
-      "isDone": false
     },
     {
       "id": "iDNvQjy-S7e6j9KjgbsQU",

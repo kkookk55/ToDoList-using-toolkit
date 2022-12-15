@@ -72,7 +72,7 @@ const StInput = styled.input`
 `;
 const CommentBox = styled.div`
   width: 558px;
-  height: 20px;
+  height: 23px;
 `;
 const CommentBoxOuter = styled.div`
   border: 2px solid #acdcec;
@@ -98,7 +98,7 @@ function Detail() {
   useEffect(() => {
     dispatch(__getTodoById(param.id));
     fetchTodos();
-  }, []);
+  }, [comments]);
   const [content, setContent] = useState("");
   const comment = {
     id: nanoid(),
